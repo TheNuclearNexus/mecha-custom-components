@@ -1,0 +1,3 @@
+
+function test:foo:
+    give @s stick[example:foo={value: 1}]
