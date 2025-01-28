@@ -6,28 +6,36 @@ from beet import Context
 from nbtlib import Base, Compound
 from mecha_custom_components import CustomComponentRegistry
 
-CLICK_ADVANCEMENT = Advancement({
-    "criteria": {
-        "using": {
-            "trigger": "minecraft:using_item",
-            "conditions": {
-                "item": {
-                    "components": {"minecraft:custom_data": {"event": {"on_click": {}}}}
-                }
-            },
-        }
-    },
-    "rewards": {"function": "event:on_click"},
-})
+CLICK_ADVANCEMENT = Advancement(
+    {
+        "criteria": {
+            "using": {
+                "trigger": "minecraft:using_item",
+                "conditions": {
+                    "item": {
+                        "components": {
+                            "minecraft:custom_data": {"event": {"on_click": {}}}
+                        }
+                    }
+                },
+            }
+        },
+        "rewards": {"function": "event:on_click"},
+    }
+)
 
-CLICK_FUNCTION = Function("""
+CLICK_FUNCTION = Function(
+    """
 advancement revoke @s only event:on_click
 function event:on_click/run with entity @s SelectedItem.components."minecraft:custom_data".event
-""")
+"""
+)
 
-CLICK_RUN_FUNCTION = Function("""
+CLICK_RUN_FUNCTION = Function(
+    """
 $function $(on_click)
-""")
+"""
+)
 
 
 def on_click_component(properties: Base, components: dict[str, Base]):
