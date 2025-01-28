@@ -17,18 +17,22 @@ from mecha import (
 
 ComponentTransformer = Callable[[Base, dict[str, Base]], dict[str, Base]]
 
+
 def components_to_ast(components: dict[str, Base]):
     arguments = []
 
-    for (key, value) in components.items():
+    for key, value in components.items():
         if key.startswith("!"):
             key_node = AstResourceLocation.from_value(key[1:])
             arguments.append(AstItemRemovedDefaultComponent(key=key_node))
         else:
             key_node = AstResourceLocation.from_value(key)
-            arguments.append(AstItemComponent(key=key_node, value=AstNbt.from_value(value)))
+            arguments.append(
+                AstItemComponent(key=key_node, value=AstNbt.from_value(value))
+            )
 
     return arguments
+
 
 @dataclass
 class ComponentCollector(MutatingReducer):
@@ -53,10 +57,7 @@ class ComponentCollector(MutatingReducer):
         for transformer in transformers:
             components = transformer(components)
 
-        return replace(
-            node,
-            arguments=components_to_ast(components)
-        )
+        return replace(node, arguments=components_to_ast(components))
 
 
 @dataclass
@@ -91,6 +92,7 @@ class CustomComponentRegistry:
     def get(self, key: str) -> ComponentTransformer | None:
         return self.custom_components.get(key)
 
+
 def test_transformer(properties: Base, components: dict[str, Base]):
     custom_data = components.setdefault("minecraft:custom_data", Compound({}))
 
@@ -101,12 +103,10 @@ def test_transformer(properties: Base, components: dict[str, Base]):
 
     return components
 
+
 def beet_default(ctx: Context):
     registry = ctx.inject(CustomComponentRegistry)
 
-    registry.extend(
-        "test",
-        test_transformer
-    )
+    registry.extend("test", test_transformer)
 
     yield
