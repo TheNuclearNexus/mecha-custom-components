@@ -3,6 +3,7 @@ from nbtlib import Compound, Base, Byte
 
 from mecha_custom_components import CustomComponentRegistry
 
+
 def test_transformer(properties: Base, components: dict[str, Base]):
     custom_data = components.setdefault("minecraft:custom_data", Compound({}))
 
@@ -12,6 +13,7 @@ def test_transformer(properties: Base, components: dict[str, Base]):
     custom_data.merge({"test": Byte(1)})
 
     return components
+
 
 def beet_default(ctx: Context):
     registry = ctx.inject(CustomComponentRegistry)
