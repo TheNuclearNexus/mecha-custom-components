@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "mecha-custom-components"
+version = "0.1.0"
+description = "A library to easily extend your Mecha/Bolt code with custom components"
+authors = ["TheNuclearNexus"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beet = ">=0.109.4"
+mecha = ">=0.96.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+bolt = "^0.49.1"
+pytest-insta = "^0.3.0"
+lectern = "^0.34.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

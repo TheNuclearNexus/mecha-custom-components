@@ -1,0 +1,3 @@
+
+function test:foo:
+    give @s stick[custom_data={hi: 1b},test={}]
