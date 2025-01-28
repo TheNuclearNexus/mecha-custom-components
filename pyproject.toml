@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mecha-custom-components"
-version = "0.0.0"
+version = "0.0.1"
 description = "A library to easily extend your Mecha/Bolt code with custom components"
 authors = ["TheNuclearNexus"]
 license = "MIT"
