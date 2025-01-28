@@ -50,7 +50,7 @@ jobs:
       - name: Run tests
         run: poetry run pytest -v
       - name: Check formatting
-        run: poetry run black --check mecha tests
+        run: poetry run black --check mecha_custom_components tests
       - name: Release
         if: |
           github.repository == 'TheNuclearNexus/mecha-custom-components'
