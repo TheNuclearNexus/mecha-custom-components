@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.3 (2025-01-28)
+
+### Fix
+
+* Readme is now properly filled out, removed testing code from __init__ ([`767ef10`](https://github.com/TheNuclearNexus/mecha-custom-components/commit/767ef10573dbaa08473b84c83056d810970e0a49))
+
 ## v0.0.2 (2025-01-28)
 
 ### Fix
