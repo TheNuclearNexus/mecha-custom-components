@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.2 (2025-01-28)
+
+### Fix
+
+* Readme was empty ([`409c0fd`](https://github.com/TheNuclearNexus/mecha-custom-components/commit/409c0fdb8e54175054ab131a164060932bc02d00))
+
 ## v0.0.1 (2025-01-28)
 
 ### Fix
