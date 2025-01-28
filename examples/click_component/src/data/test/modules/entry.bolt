@@ -1,0 +1,8 @@
+
+function test:foo:
+    give @s stick[event:on_click=(./click)]
+    give @s stick[event:on_click={function: (./click)}]
+    give @s stick[event:on_click={function: (./click), animation: eat}]
+
+function test:click:
+    say clicked!

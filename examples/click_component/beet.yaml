@@ -1,0 +1,16 @@
+minecraft: 1.21
+
+data_pack:
+  load:
+    - src
+
+pipeline:
+  - mecha
+
+require:
+  - bolt
+  - plugins.component
+
+meta:
+  bolt:
+    entrypoint: "test:entry"
